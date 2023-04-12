@@ -64,6 +64,15 @@
 		  cursor: pointer;
 		  display: none;
 		}
+		.tests{
+		  font-size: 30px;
+		  color: white;
+		  float: right;
+		  line-height: 80px;
+		  margin-right: 40px;
+		  cursor: pointer;
+		  display: none;
+		}
 		#check{
 		  display: none;
 		}
@@ -73,37 +82,49 @@
 		@media (max-width: 858px){
 			body{
 				background: rgba(37, 103, 35, 1);
-		    background-color: rgba(37, 103, 35, 1);
-    	}
-		  .checkbtn{
-		    display: block;
-		  }
-		  ul{
-		    position: fixed;
-		    width: 100%;
-		    height: 100vh;
-		    background: rgba(0, 0, 0, 0.5);
-		    top: 80px;
-		    left: -100%;
-		    text-align: center;
-		    transition: all .5s;
-		  }
-		  nav ul li{
-		    display: block;
-		    margin: 50px 0;
-		    line-height: 30px;
-		  }
-		  nav ul li a{
-		    font-size: 20px;
-		  }
-		  a:hover,a.active{
-		    background: none;
-		    color: red;
-		  }
-		  #check:checked ~ ul{
-		    left: 0;
-		  }
+		    	background-color: rgba(37, 103, 35, 1);
+    		}
+			  .checkbtn{
+			    display: block;
+			  }
+			  	.tests{
+				  font-size: 20px;
+				  color: white;
+				  float: right;
+				  line-height: 40%;
+				  margin-right: 40%;
+				  cursor: pointer;
+				  display: block;
+				}
 
+			  ul{
+			    position: fixed;
+			    width: 100%;
+			    height: 100vh;
+			    background: rgba(0, 0, 0, 0.5);
+			    top: 80px;
+			    left: -200%;
+			    text-align: center;
+			    transition: all .5s;
+			  }
+			  nav ul li{
+			    display: block;
+			    margin-left: 0px;
+			    margin-right: 70px;
+			    margin-top: 30px;
+			    line-height: 30px;
+			  }
+			  nav ul li a{
+			    font-size: 20px;
+			  }
+			  a:hover,a.active{
+			    background: none;
+			    color: red;
+			  }
+			  #check:checked ~ ul{
+			    left: 0;
+			  }
+		}
 
     </style>
 </head>
@@ -113,12 +134,14 @@
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <a href="#"><img src="images/faBars.svg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 20px;"></a>
+      <a href="#"><img src="images/faBars.svg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px;"></a>
       <ul>
         <li><a class="active" href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="services.html">Services</a></li>
+        <li class="tests"><a href="">My Profile</a></li>
+        <li class="tests"><a href="">My Orders</a></li>        
       </ul>
     </nav>
 

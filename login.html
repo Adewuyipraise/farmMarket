@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FarmMarket Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
+    <style type="text/css">
+    	/*background*/
+    	body{
+    		background-color: rgba(37, 103, 35, 1);
+    	}
+
+    	.image{
+    		display: flex;
+    		justify-content: center;
+    		align-content: center;
+    	}
+
+    	img {
+    		max-width: 20%;
+    	}
+
+	 	/* Full-width input fields */
+	    input[type=text], input[type=password], input[type=number]{
+	      width: 100%;
+	      padding: 12px 20px;
+	      margin: 8px 0;
+	      display: inline-block;
+	      border: none;
+	      border-radius: 10px;
+	      box-sizing: border-box;
+	      color: black;
+	      text-align: center;
+	    }
+
+	    button{
+	    	width: 20%;
+	    	height: 40px;
+	    	font-size: 25px;
+	    	cursor: pointer;
+	    	background-color: rgba(243, 40, 40, 1);
+	    	border-style: none;
+	    	border-radius: 10px;
+	    }
+
+	    button:hover{
+	    	background-color: white;
+	    	transition: ease-in-out 0.5s;
+	    }
+
+	    /*media screen at max-width=700px;*/
+		@media (max-width: 700px){
+			button{
+				font-size: 15px;
+				font-weight: 700;
+			}
+
+			/*background*/
+	    	body{
+	    		margin-top: 3%;
+	    	}
+
+	    	img {
+    			max-width: 50%;
+    		}
+		}
+
+    </style>
+</head>
+<body>
+	<div class="image">
+		<img src="images/logo.png">
+	</div>
+	<div style="text-align: center;">
+		<form action="home.html" method="post">
+	      <p><label for="number"><b>Phone Number</b></label>
+	      <input type="number" name="number" style="background-color: rgba(243, 40, 40, 1);" maxlength='11' required></p>
+
+	      <p><label for="psw"><b>Password</b></label>
+	      <input type="password" name="psw" required></p>
+
+	      <button type="submit"> Continue </button>
+		</form>
+		<br>
+		<a href="accessPage.html"><button> Cancel </button></a>
+	</div>
+</body>
+</html>

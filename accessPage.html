@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FarmMarket Access Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
+    <style type="text/css">
+    	
+    	/*background*/
+    	body{
+    		background-color: rgba(37, 103, 35, 1);
+    		margin-top: 0;
+    	}
+
+    	.image{
+    		display: flex;
+    		justify-content: center;
+    		align-content: center;
+            margin-top: -8%;
+    	}
+
+    	img {
+    		max-width: 20%;
+    	}
+
+    	.text1{
+    		text-align: center;
+            margin-top: -3%;
+    	}
+
+    	p{
+    		font-family: 'Inter';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			text-transform: capitalize;
+			color: #000000;
+    	}
+
+    	a{
+    		text-decoration: none;
+    		color: #F32828;
+    	}
+    	a:hover{
+    		color: whitesmoke;
+    		transition: ease-in-out 0.5s;
+    	}
+
+    	button{
+    		background-color: white;
+    		color: black;
+    		width: 80%;
+    		text-align: center;
+    		height: 40px;
+    		font-size: 25px;
+    		margin-left: 10%;
+    		margin-right: 10%;
+    		font-weight: 700;
+    		border-style: none;
+    		border-radius: 10px;
+    		cursor: pointer;
+    	}
+
+    	.text2{
+    		color: #000000;
+    		margin-left: 10%;
+    		margin-bottom: 5%;
+    	}
+
+  		/*media screen at max-width=700px;*/
+		@media (max-width: 700px){
+
+			/*background*/
+	    	body{
+	    		margin-top: 1%;
+	    	}
+
+	    	img {
+    			max-width: 50%;
+    		}
+
+    		.text2{
+    			color: #000000;
+    			margin-left: 10%;
+    			margin-bottom: 3%;
+    		}
+		}
+
+    </style>
+</head>
+<body>
+    <a href="index.html"><img src="images/goback.png" style="width: 50px; height: 50px; margin-left: 2%; margin-top: 2%;"></a>
+	<div class="image">
+        <img src="images/logo.png">
+	</div>
+	<div class="text1">
+		<p>If New?</p>
+		<h1><a href="signup.html">SIGN UP</a></h1>
+	</div>
+	<br>
+	<div>
+		<a href="login.html"><button>LOGIN</button></a>
+	</div>
+	<div class="text2">
+		<p><a href="forgottenpsw.html" style="color: #000;">Forgotten Password</a></p>
+		<p style="margin-left: 20%;">or</p>
+		<p><a href="" style="color: #000;">Login With Google</a></p>
+	</div>
+
+
+</body>
+</html>

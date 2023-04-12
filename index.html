@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FarmMarket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
+    <style type="text/css">
+    	@import font-family: "inter";
+    	
+	/* Rectangle 59 */
+	body {
+		background-color: rgba(243, 40, 40, 1);
+		margin-top: 15%;
+
+	}
+	/*welcome Page*/
+	.welcomePage{
+		text-align: center;
+
+	}
+
+
+	.farmMarket{
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 54px;
+		line-height: 77px;
+		text-align: center;
+		text-transform: capitalize;
+		color: #256723;
+	}
+
+	.feedingNation{
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 39px;
+		text-align: center;
+		text-transform: capitalize;
+		color: #000000;
+	}
+
+	button{
+		width: fit-content;
+		border-radius: 5px;
+		border-style: none;
+		background-color: rgba(0, 0, 0, 0.3);
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 36px;
+		line-height: 44px;
+		text-align: center;
+		text-transform: capitalize;
+		color: #000000;
+		width: 398px;
+		height: 81px;
+		cursor: pointer;
+
+	}
+
+	button:hover{
+		background-color: white;
+		transition: ease-in-out 0.5s;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+
+	/*media screen at max-width=700px;*/
+	@media (max-width: 700px){
+
+		body{
+			margin-top: 30%;
+			margin-bottom: 10%;
+		}
+
+		.farmMarket{
+			font-size: 20px;
+		}
+
+		.feedingNation{
+			font-size: 12px;
+		}
+
+		button {
+			font-size: 16px;
+			width: 200px;
+			height: 40px;
+		}
+
+	}
+    </style>
+  </head>
+<body>
+
+	<div class="welcomePage">
+		<div class="farmMarket">
+		<h1>Farm Market</h1>
+		</div>
+		<div class="feedingNation">
+		<p>Feeding The Nation</p>
+		</div>
+		<a href="accessPage.html"><button>Welcome</button></a>
+	</div>
+
+</body>
+</html>

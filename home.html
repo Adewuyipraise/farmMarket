@@ -77,6 +77,55 @@
 		  display: none;
 		}
 
+		.dropdown {
+  overflow: hidden;
+  float: right; 
+  margin-top: 4%;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: #f23638;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f23638;
+}
+
+.show {
+  display: block;
+}
+
 
 
 		@media (max-width: 858px){
@@ -124,6 +173,12 @@
 			  #check:checked ~ ul{
 			    left: 0;
 			  }
+			 .dropdown {
+				  overflow: hidden;
+			    margin-left: 0px;
+			    margin-right: 45%;
+			    margin-top: 30px;
+			}
 		}
 
     </style>
@@ -138,12 +193,37 @@
       <ul>
         <li><a class="active" href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li class="tests"><a href="">My Profile</a></li>
-        <li class="tests"><a href="">My Orders</a></li>        
+        <li><a href="contact.html">Contact</a></li> 
+        <div class="dropdown">
+	    <button class="dropbtn" onclick="myFunction()">SERVICES 
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content" id="myDropdown">
+	      <a href="#">My Profile</a>
+	      <a href="#">My Order</a>
+	      <a href="accessPage.html">Logout</a>
+	    </div>
+	  </div>       
       </ul>
     </nav>
 
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 </body>
 </html>

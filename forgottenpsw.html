@@ -9,9 +9,11 @@
     <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
     <style type="text/css">
     	/*background*/
-    	body{
+		body{
     		background-color: rgba(37, 103, 35, 1);
-    		margin: 3%;
+            background-image: url(images/ShoppingCart/bgdesktop.svg);
+            background-size: cover;
+    		margin-top: 0;
     	}
 
     	.image{
@@ -87,7 +89,7 @@
 		<p>Verify Account</p>
 	</div>
 	<div style="text-align: center;">
-		<form onsubmit="accessPage.html" method="post">
+		<form action="accessPage.html" method="post">
 	      <p><label for="number"><b>Phone Number</b></label>
 	      <input type="number" name="number" maxlength=11 required></p>
 

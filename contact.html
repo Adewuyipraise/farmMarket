@@ -125,6 +125,88 @@
   display: block;
 }
 
+.contact {
+	text-align: center;
+	margin-left: 40%;
+	margin-right: 40%;
+	font-size: 30px;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+}
+    /* Full-width input fields */
+    input[type=text], input[type=password], input[type=number], input[type=email] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      color: white;
+      background-color: rgba(37, 103, 35, 0.6);
+    }
+
+        /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 1% 0 -3% 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /*contact us.html css*/
+.contactUs{
+    width: fit-content; 
+    margin-right: 45%; 
+    margin-left: 45%; 
+    margin-top: 10%  
+}
+.contactUs img {
+  border-radius: 50%;
+  width: 100%; 
+  height: 100%;
+}
+      textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(37, 103, 35, 0.6);
+  font-size: 16px;
+  resize: none;
+  color: white;
+}
+
+    button {
+      background-color: rgba(255,49,48);
+      color: rgba(247,254,236);
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: -2%;
+    }
+
+    button:hover {
+      background-color: #87c431;
+    }
+
 
 
 		@media (max-width: 858px){
@@ -178,6 +260,14 @@
 			    margin-right: 45%;
 			    margin-top: 30px;
 			}
+			.contact {
+				text-align: center;
+				margin-left: 0%;
+				margin-right: 0%;
+				font-size: 30px;
+				color: white;
+				text-shadow: 2px 2px 2px black;
+			}
 		}
 
 </style>
@@ -186,9 +276,9 @@
 	<nav>
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
+        <img src="images/faBars.svg" alt="Menu" style="height: 40px; width: 40px;  margin-top: 20px; margin-left: 10px;">
       </label>
-      <a href="index.html"><img src="images/faBars.svg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px;"></a>
+      <a href="index.html"><img src="images/logo.jpeg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px; border-radius: 50%;"></a>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -205,6 +295,38 @@
 	  </div>       
       </ul>
     </nav>
+
+      <div class="">
+        <form>
+          <div class="imgcontainer" style="color: white;">
+            <h2 style="text-shadow: 2px 2px 2px black">Contact Us</h2>
+          </div>
+          <div class="container" style="color: white;">
+            <p><label for="fname"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Fullname" name="fname" required></p>
+
+            <p><label for="email"><b>E-mail</b></label>
+            <input type="email" placeholder="example@mail.com" name="email" required></p>
+
+            <p><label for="number"><b>Phone Number</b></label>
+            <input type="number" placeholder="0901-234-5678" name="number" maxlength=11 required></p>
+            <p><label for="Message"><b>Message</b></label>
+            <p><textarea placeholder="Enter your Message"></textarea></p>
+            <button type="submit">Contact Us</button>
+          </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 /* When the user clicks on the button, 

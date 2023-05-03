@@ -2,13 +2,50 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>FarmMarket Login Page</title>
+    <title>FarmMarket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="icon" href="images/logo.jpeg" type="image/x-icon">
     <style type="text/css">
+    	.loader{
+		  position: fixed;
+		  height: 100vh;
+		  width: 100%;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  background: url(images/loaderdesktop.JPG) no-repeat;
+		  background-size: cover;
+		  transition: all 0.5s;
+		  z-index:10000;
+		}
+		.loader .ring{
+		  height: 45px;
+		  width: 45px;
+		  border: 5px solid #ddd;
+		  border-radius: 50%;
+		  position: relative;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		.loader .ring:after{
+		  position: absolute;
+		  content: "";
+		  height: 100%;
+		  width: 100%;
+		  border-radius: 50%;
+		  border: 5px solid #ff3d00;
+		  border-top-color: transparent;
+		  animation: rotate 1.5s linear infinite;
+		}
+		@keyframes rotate {
+		  100%{
+		    transform: rotate(360deg);
+		  }
+		}
+
     	/*background*/
     	body{
 			background-image: url(images/logo.jpeg);
@@ -16,6 +53,8 @@
    		    background-repeat: no-repeat;
 		    background-attachment: fixed;
 		    background-color: rgba(247,254,236);
+		    margin: 0;
+		    padding: 0;
     	}
 		nav{
 		  height: 80px;
@@ -78,61 +117,164 @@
 		}
 
 		.dropdown {
-  overflow: hidden;
-  float: right; 
-  margin-top: 4%;
-}
+		  overflow: hidden;
+		  float: right; 
+		  margin-top: 4%;
+		}
 
-.dropdown .dropbtn {
-  cursor: pointer;
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: black;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
+		.purchase {
+			cursor: pointer;
+			color: whitesmoke;
+			background-color: green;
+			border: none;
+			border-radius: 5px;
+			height: 50px;
+			width: 100px;
+		}
 
-.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  background-color: #f23638;
-  border-radius: 5px;
-}
+		.purchase:hover{
+			background-color: red;
+			transition: ease-in-out 0.5s;
+		}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+		.dropdown .dropbtn {
+		  cursor: pointer;
+		  font-size: 16px;  
+		  border: none;
+		  outline: none;
+		  color: black;
+		  padding: 14px 16px;
+		  background-color: inherit;
+		  font-family: inherit;
+		  margin: 0;
+		}
 
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+		.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+		  background-color: #f23638;
+		  border-radius: 5px;
+		}
 
-.dropdown-content a:hover {
-  background-color: #f23638;
-}
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f9f9f9;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+		}
 
-.show {
-  display: block;
-}
+		.dropdown-content a {
+		  float: none;
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		  text-align: left;
+		}
+
+		.dropdown-content a:hover {
+		  background-color: #f23638;
+		}
+
+		.show {
+		  display: block;
+		}
 
 
+		.container {
+			margin: 0;
+			max-width: 100%;
+			padding: 20px;
+		}
 
+		.container h1 {
+			text-align: center;
+		}
+
+		.products {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.product {
+			flex: 1;
+			margin: 10px;
+			text-align: center;
+		}
+
+		.product img {
+			max-width: 100%;
+		}
+
+		input[type=text] {
+		  width: 130px;
+		  box-sizing: border-box;
+		  border: 2px solid #ccc;
+		  border-radius: 20px;
+		  font-size: 16px;
+		  background-color: white;
+		  background-image: url('images/searchicon.png');
+		  background-position: 10px 10px; 
+		  background-repeat: no-repeat;
+		  padding: 12px 20px 12px 40px;
+		  transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+		  width: 100%;
+		}
+		input[type=text] {
+		  width: 130px;
+		  height: 50px
+		  box-sizing: border-box;
+		  border: 2px solid #ccc;
+		  border-radius: 20px;
+		  font-size: 16px;
+		  background-color: white;
+		  background-image: url('images/searchicon.png');
+		  background-position: 10px 10px; 
+		  background-repeat: no-repeat;
+		  padding: 12px 20px 12px 40px;
+		  transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+		  width: 85%;
+		}
+
+		#searchButton{
+			cursor: pointer;
+			color: whitesmoke;
+			background-color: green;
+			border: none;
+			border-radius: 5px;
+			height: 50px;
+			width: 100px;
+		}
+
+		#searchButton:hover{
+			background-color: red;
+			transition: ease-in-out 0.5s;			
+		}
+		
 		@media (max-width: 858px){
 			body{
 				background: rgba(37, 103, 35, 1);
 		    	background-color: rgba(37, 103, 35, 1);
+		    	color: white;
     		}
+    		.loader{
+			  position: fixed;
+			  height: 100vh;
+			  width: 100%;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  background: url(images/splashscreenmobile.svg) no-repeat;
+			  background-size: cover;
+			  transition: all 0.5s;
+			  z-index:10000;
+			}
 			  .checkbtn{
 			    display: block;
 			  }
@@ -179,113 +321,805 @@
 			    margin-right: 45%;
 			    margin-top: 30px;
 			}
+					.purchase {
+			cursor: pointer;
+			color: whitesmoke;
+			background-color: red;
+			border: none;
+			border-radius: 5px;
+			height: 50px;
+			width: 100px;
+		}
+		}
+				input[type=text]:focus {
+		  			width: 55%;
+				}
+
 		}
 
     </style>
 </head>
+	<div class="loader">
+         <div class="ring"></div>
+    </div>
 <body>
 	<nav>
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
+			<img src="images/faBars.svg" alt="Menu" style="height: 40px; width: 40px;  margin-top: 20px; margin-left: 10px;">      </label>
       </label>
-      <a href="#"><img src="images/faBars.svg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px;"></a>
+      <a href="home.html"><img src="images/logo.jpeg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px; border-radius: 50%;"></a>
       <ul>
         <li><a class="active" href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li> 
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact1.html">Contact</a></li> 
         <div class="dropdown">
 	    <button class="dropbtn" onclick="myFunction()">SERVICES 
 	      <i class="fa fa-caret-down"></i>
 	    </button>
 	    <div class="dropdown-content" id="myDropdown">
-	      <a href="myProfile.html">My Profile</a>
-	      <a href="myOrder.html">My Order</a>
-	      <a href="accessPage.html">Logout</a>
+	      <a href="login.html">Login</a>
+	      <a href="signup.html">Sign Up</a>
+	      <!-- <a href="accessPage.html">Get started</a> -->
 	    </div>
 	  </div>       
       </ul>
     </nav>
 
+<div class="container">
+	<h1>Shopping Cart</h1>
+	<input type="text" name="search" id="searchInput" placeholder="Search..">
+	<button id="searchButton">Search</button>
+	<div id="searchResults"></div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/rice.svg" alt="Rice">
+			<h3>Rice</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/maize.svg" alt="Maize">
+			<h3>Maize</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/beans.svg" alt="Beans">
+			<h3>Beans</h3>
+			<p>$8.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
+			<h3>Potatoe</h3>
+			<p>$10.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+	</div>
+	<div class="products">
+	</div>
+	<div class="products">
+		<div class="product">
+			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
+			<h3>Fish</h3>
+			<p>$4.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
+			<h3>Garri</h3>
+			<p>$5.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
+			<h3>Groundnut Oil</h3>
+			<p>$25.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
+			<h3>Tomatoes</h3>
+			<p>$40.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>
+		<div class="product">
+			<img src="images/ShoppingCart/yam.svg" alt="Yam">
+			<h3>Yam</h3>
+			<p>$15.00</p>
+			<a href="accessPage.html"><button class="purchase" id="purchaseButton"> Purchase </button></a>
+		</div>		
+	</div>
+	<!-- <div class="cart" style="text-align: center;">
+		<h2>Cart</h2>
+		<ul class="cart-items">
+		</ul>
+		<p class="cart-total-price">No Items Added. Items Added to Cart will be shown here</p>
+	</div> -->
+</div>
 
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/beans.svg">
-<img src="images/ShoppingCart/rice.svg">
-<img src="images/ShoppingCart/yam.svg">
-<img src="images/ShoppingCart/maize.svg">
-<img src="images/ShoppingCart/pepper.svg">
-<img src="images/ShoppingCart/potatoe.svg">
-<img src="images/ShoppingCart/rice.svg">
+
+
+
+
 <script>
+//loader
+    const loader = document.querySelector(".loader");
+    window.onload = function(){
+    setTimeout(function(){
+    loader.style.opacity = "0";
+    setTimeout(function(){
+    loader.style.display = "none";
+  }, 500);
+ },3000);
+ }
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -301,6 +1135,43 @@ window.onclick = function(e) {
     }
   }
 }
+
+//###search button
+
+//get references to the search input, search button, and search results container
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const searchResults = document.getElementById('searchResults');
+
+// function to perform the search
+function performSearch() {
+	//get the search query from input field
+	const query = searchInput.value;
+
+	//Perform your search logic here using the query and image data you have
+
+
+	//Replace the placeholder code below with your actual search implementation
+	const images = [
+		{ title: 'Product 1', image: 'url to product 1'},
+		{ title: 'Product 2', image: 'url to product 2'},
+		{ title: 'Product 3', image: 'url to product 3'},
+	];
+
+	// clear previous search results 
+	searchResults.innerHTML = '';
+
+	//display the search results
+	images.forEach(image=> {
+		const resultItem = document.createElement('div');
+		resultItem.innerHTML = `<h3>${image.title}</h3><img src="${image.image}" alt="${image.title}">`;
+		searchResults.appendChild(resultItem)
+	});
+}
+
+//Attach the performSearch funstion to the search button on click event
+searchButton.addEventListener('click', performSearch);
+
 </script>
 </body>
 </html>

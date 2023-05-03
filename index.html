@@ -117,6 +117,22 @@
 		  display: none;
 		}
 
+		.purchase {
+			cursor: pointer;
+			color: whitesmoke;
+			background-color: green;
+			border: none;
+			border-radius: 5px;
+			height: 50px;
+			width: 100px;
+		}
+
+		.purchase:hover{
+			background-color: red;
+			transition: ease-in-out 0.5s;
+		}
+
+
 		.dropdown {
 		  overflow: hidden;
 		  float: right; 
@@ -222,6 +238,39 @@
 			font-weight: bold;
 		}
 
+		input[type=text] {
+		  width: 130px;
+		  height: 50px
+		  box-sizing: border-box;
+		  border: 2px solid #ccc;
+		  border-radius: 20px;
+		  font-size: 16px;
+		  background-color: white;
+		  background-image: url('images/searchicon.png');
+		  background-position: 10px 10px; 
+		  background-repeat: no-repeat;
+		  padding: 12px 20px 12px 40px;
+		  transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+		  width: 85%;
+		}
+
+		#searchButton{
+			cursor: pointer;
+			color: whitesmoke;
+			background-color: green;
+			border: none;
+			border-radius: 5px;
+			height: 50px;
+			width: 100px;
+		}
+
+		#searchButton:hover{
+			background-color: red;
+			transition: ease-in-out 0.5s;			
+		}
 
 		@media (max-width: 858px){
 			body{
@@ -286,20 +335,31 @@
 			    margin-right: 45%;
 			    margin-top: 30px;
 			}
+				.purchase {
+					cursor: pointer;
+					color: whitesmoke;
+					background-color: red;
+					border: none;
+					border-radius: 5px;
+					height: 50px;
+					width: 100px;
+				}
+				input[type=text]:focus {
+		  			width: 55%;
+				}
 		}
 
     </style>
 </head>
-	<div class="loader">
+	<!-- <div class="loader">
          <div class="ring"></div>
-    </div>
+    </div> -->
 <body>
 	<nav>
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
-      </label>
-      <a href="index.html"><img src="images/faBars.svg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px;"></a>
+			<img src="images/faBars.svg" alt="Menu" style="height: 40px; width: 40px;  margin-top: 20px; margin-left: 10px;">      </label>
+      <a href="index.html"><img src="images/logo.jpeg" alt="farmMarket logo" style="height: 50px; width: 50px; float: left; margin-top: 20px; margin-left: 10px; border-radius: 50%;"></a>
       <ul>
         <li><a class="active" href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -319,40 +379,38 @@
 
 <div class="container">
 	<h1>Shopping Cart</h1>
+	<input type="text" id="searchInput" name="search" id="searchInput" placeholder="Search...">
+	<button id="searchButton">Search</button>
+	<div id="searchResults"></div>
 	<div class="products">
 		<div class="product">
 			<img src="images/ShoppingCart/rice.svg" alt="Rice">
 			<h3>Rice</h3>
 			<p>$10.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/yam.svg" alt="Yam">
 			<h3>Yam</h3>
 			<p>$15.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/maize.svg" alt="Maize">
 			<h3>Maize</h3>
 			<p>$4.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/beans.svg" alt="Beans">
 			<h3>Beans</h3>
 			<p>$8.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/potatoe.svg" alt="Potatoe">
 			<h3>Potatoe</h3>
 			<p>$10.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 	</div>
@@ -363,37 +421,33 @@
 			<img src="images/ShoppingCart/fish.jpg" alt="Fish">
 			<h3>Fish</h3>
 			<p>$4.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/garri.jpg" alt="Garri">
 			<h3>Garri</h3>
 			<p>$5.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/groundnut oil.jpg" alt="Groundnut Oil" style="max-width: 50%">
 			<h3>Groundnut Oil</h3>
 			<p>$25.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		<div class="product">
 			<img src="images/ShoppingCart/tomatoes.jpg" alt="Tomatoes">
 			<h3>Tomatoes</h3>
 			<p>$40.00</p>
-			<button class="add-to-cart">Add to cart</button>
 			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 	</div>
-	<div class="cart" style="text-align: center;">
+<!-- 	<div class="cart" style="text-align: center;">
 		<h2>Cart</h2>
 		<ul class="cart-items">
 		</ul>
 		<p class="cart-total-price">No Items Added. Items Added to Cart will be shown here</p>
-	</div>
+	</div> -->
 </div>
 
 
@@ -460,7 +514,7 @@ function addItemToCart(productName, productPrice, productImage) {
 		}
 	}
 	var cartItemContents = `
-		<div class="product" style="max-width:30%;">
+		<div class="product" style="max-width:30%; display: flex; justify-content: center;">
 		<div class="cart-item-image">
 			<img src="${productImage}" alt="item">
 		</div>
@@ -468,7 +522,6 @@ function addItemToCart(productName, productPrice, productImage) {
 			<h4 class="cart-item-title">${productName}</h4>
 			<p class="cart-item-price">${productPrice}</p>
 			<button class="remove-item">Remove</button>
-			<button class="purchase" id="purchaseButton">Purchase</button>
 		</div>
 		</div>
 	`;
@@ -491,6 +544,7 @@ function updateCartTotal() {
 	}
 	total = Math.round(total * 100) / 100;
 	document.getElementsByClassName('cart-total-price')[0].innerText = 'Total:' + '$' + total;
+	var total = `<button class="purchase" id="purchaseButton">Purchase</button>`
 }
 
 // function to remove an item from the cart
@@ -503,6 +557,44 @@ function removeCartItem(event) {
 
 
 
+//###search button
+
+//get references to the search input, search button, and search results container
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const searchResults = document.getElementById('searchResults');
+
+// function to perform the search
+function performSearch() {
+	//get the search query from input field
+	const query = searchInput.value.toLowerCase();
+
+	//Perform your search logic here using the query and image data you have
+
+	//filter dearch based on the  query
+	const 
+
+
+	//Replace the placeholder code below with your actual search implementation
+	const images = [
+		{ title: 'Rice', image: 'images/ShoppingCart/rice.svg', tags: ['rice']},
+		{ title: 'beans', image: 'images/ShoppingCart/beans.svg', tags: ['beans']},
+		{ title: 'fish', image: 'images/ShoppingCart/fish.jpg', tags: ['fish']},
+	];
+
+	// clear previous search results 
+	searchResults.innerHTML = '';
+
+	//display the search results
+	images.forEach(image=> {
+		const resultItem = document.createElement('div');
+		resultItem.innerHTML = `<h3>${image.title}</h3><img src="${image.image}" alt="${image.title}">`;
+		searchResults.appendChild(resultItem)
+	});
+}
+
+//Attach the performSearch funstion to the search button on click event
+searchButton.addEventListener('click', performSearch);
 
 
 
